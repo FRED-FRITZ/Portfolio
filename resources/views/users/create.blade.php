@@ -24,21 +24,21 @@
                 <input type="text" name="name" class="form-control" id="name" placeholder="Name">
             </div>
             <div class="form-group col-md-6">
-                <label for="role">Role</label>
-                <input type="text" name="role" class="form-control" id="role" placeholder="Role">
-            </div>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-6">
                 <label for="email">Email</label>
                 <input type="email" name="email" class="form-control" id="email" placeholder="Email">
             </div>
             <div class="form-group col-md-6">
-                <label for="password">Password</label>
-                <input type="password" name="password" class="form-control" id="password" placeholder="Password">
+                <label for="role">Role</label>
+                <input type="text" name="role" class="form-control" id="role" placeholder="Role">
             </div>
-        </div>
+            <div class="form-group col-md-6">
+                <label for="role">Avatar</label>
+                <input type="file" name="avatar" class="form-control" id="role" placeholder="avatar">
+            </div>
         <button type="submit" class="btn btn-primary">Submit</button>
+
+        </div>
+        </div>
     </form>
 </div>
 

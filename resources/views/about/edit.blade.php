@@ -53,7 +53,7 @@
                 </div>
                 <div class="form-group col-md-6">
                     <label for="age">Age</label>
-                    <input type="text" name="age" class="form-control" id="age" placeholder="Age" value="{{ $about->age }}" >
+                    <input type="number" name="age" class="form-control" id="age" placeholder="Age" value="{{ $about->age }}" >
                 </div>
                 <div class="form-group col-md-6">
                     <label for="gender">Gender</label>

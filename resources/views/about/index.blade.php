@@ -40,7 +40,9 @@
                 <th scope="col">Lives In</th>
                 <th scope="col">Age</th>
                 <th scope="col">Gender</th>
+                @if(Auth::user()->role === 'admin')
                 <th scope="col">Action</th>
+                @endif
             </tr>
         </thead>
         <tbody>
@@ -57,7 +59,9 @@
                         <td>{{ $rs->gender }}</td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic example">
+                                @if(Auth::user()->role === 'admin')
                                 <a href="{{ route('about.edit', $rs->id)}}" type="button" class="btn btn-warning">Edit</a>
+                                @endif
                             </div>
                         </td>
                     </tr>

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Storage;
+
 
 class usersController extends Controller
 {
@@ -31,10 +33,17 @@ class usersController extends Controller
     public function store(Request $request)
     {
         $admin = new User();
+
         $admin->role = $request->input('role');
         $admin->name = $request->input('name');
         $admin->email = $request->input('email');
+        $admin->avatar = $request->input('avatar');
         $admin->password = bcrypt($request->input('password'));
+
+        if ($request->hasFile('avatar')) {
+            $avatarPath = $request->file('avatar')->store('avatars', 'public');
+            $admin->avatar = $avatarPath;
+        }
 
         $admin->save();
 
@@ -68,10 +77,21 @@ class usersController extends Controller
     {
         $users = User::findOrFail($id);
 
-        $users->update($request->all());
+        $users->role = $request->input('role');
+        $users->name = $request->input('name');
+        $users->email = $request->input('email');
 
-        return redirect()->route('users.index')->with('success', 'Users updated successfully');
+        if ($request->hasFile('avatar')) {
+            $avatarPath = $request->file('avatar')->store('avatars', 'public');
+            $users->avatar = $avatarPath;
+        }
+
+        $users->save();
+
+        return redirect()->route('users.index')->with('success', 'User updated successfully');
     }
+
+
 
     /**
      * Remove the specified resource from storage.

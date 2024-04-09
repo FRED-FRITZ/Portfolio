@@ -22,7 +22,7 @@ class AboutController extends Controller
      */
     public function create()
     {
-        // return view('about.create');
+         return view('about.create');
     }
 
     /**
@@ -30,9 +30,9 @@ class AboutController extends Controller
      */
     public function store(Request $request)
     {
-        // About::create($request->all());
+         About::create($request->all());
 
-        // return redirect()->route('about.index')->with('success', 'About added successfully');
+         return redirect()->route('about.index')->with('success', 'About added successfully');
     }
 
     /**
@@ -40,9 +40,9 @@ class AboutController extends Controller
      */
     public function show(string $id)
     {
-        // $about = About::findOrFail($id);
+        $about = About::findOrFail($id);
 
-        // return view('about.show', compact('about'));
+        return view('about.show', compact('about'));
     }
 
     /**
@@ -72,10 +72,10 @@ class AboutController extends Controller
      */
     public function destroy(string $id)
     {
-        // $about = About::findOrFail($id);
+        $about = About::findOrFail($id);
 
-        // $about->delete();
+        $about->delete();
 
-        // return redirect()->route('about.index')->with('success', 'About deleted successfully');
+        return redirect()->route('about.index')->with('success', 'About deleted successfully');
     }
 }

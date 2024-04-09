@@ -7,7 +7,6 @@ use App\Http\Controllers\SkillsController;
 use App\Http\Controllers\EducationalController;
 use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\ContactController;
-use App\Http\Controllers\WebinarController;
 use App\Http\Controllers\frontEnd_Controller;
 
 
@@ -39,6 +38,5 @@ Route::resource('about', AboutController::class);
 Route::resource('skills', SkillsController::class);
 Route::resource('educationals', EducationalController::class);
 Route::resource('experiences', ExperienceController::class);
-Route::resource('webinars', WebinarController::class);
 Route::resource('contacts', ContactController::class);
 Route::resource('/', frontEnd_Controller::class);

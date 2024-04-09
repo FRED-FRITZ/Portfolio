@@ -31,21 +31,19 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="name">Name</label>
-                    <input type="text" name="full_name" class="form-control" id="name" placeholder="Full Name" value="{{ $users->full_name }}" >
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Full Name" value="{{ $users->name }}" >
                 </div>
                 <div class="form-group col-md-6">
                     <label for="email">Email</label>
                     <input type="text" name="email" class="form-control" id="email" placeholder="Email" value="{{ $users->email }}" >
                 </div>
-            </div>
-            <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="role">Role</label>
                     <input type="text" name="role" class="form-control" id="role" placeholder="Role" value="{{ $users->role }}" >
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="status">Description</label>
-                    <input type="text" name="description" class="form-control" id="description" placeholder="Description" value="{{ $users->description }}" >
+                    <label for="avatar">Avatar</label>
+                    <input type="file" name="avatar" class="form-control" id="avatar" placeholder="avatar" value="{{ $users->avatar }}" >
                 </div>
             </div>
             <div class="row">

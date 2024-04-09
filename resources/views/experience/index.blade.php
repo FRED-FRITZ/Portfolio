@@ -18,9 +18,11 @@
             <div class="pull-left">
                 <h2>List Experience</h2>
             </div>
+            @if(Auth::user()->role === 'admin')
             <div class="pull-right mb-2">
                 <a href="{{ route('experiences.create') }}" class="btn btn-primary">Add Experience</a>
             </div>
+            @endif
         </div>
     </div>
 
@@ -38,7 +40,9 @@
                 <th scope="col">Job Title</th>
                 <th scope="col">Company</th>
                 <th scope="col">Description</th>
+                @if(Auth::user()->role === 'admin')
                 <th scope="col">Action</th>
+                @endif
             </tr>
         </thead>
         <tbody>

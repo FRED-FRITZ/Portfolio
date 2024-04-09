@@ -233,7 +233,7 @@
       <div class="text-center wow fadeInUp">
         <div class="badge badge-subhead">Works</div>
       </div>
-      <h1 class="text-center fw-normal wow fadeInUp">See my work</h1>
+      <h1 class="text-center fw-normal wow fadeInUp">See my past works</h1>
       <div class="filterable-button py-3 wow fadeInUp" data-toggle="selected">
         <button class="btn btn-theme-outline selected" data-filter="*">All</button>
         <button class="btn btn-theme-outline" data-filter=".apps">Apps</button>

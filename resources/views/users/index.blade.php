@@ -37,6 +37,7 @@
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
                 <th scope="col">Role</th>
+                <th scope="col">Avatar</th>
                 <th scope="col">Action</th>
             </tr>
         </thead>
@@ -47,7 +48,22 @@
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $rs->name }}</td>
                         <td>{{ $rs->email }}</td>
-                        <td>{{ $rs->role }}</td>
+                        <td>
+                            @if($rs->role == 'admin')
+                            <div class="badge badge-success">Admin</div>
+                            @else
+                            <div class="badge badge-primary">Spectator</div>
+                            @endif
+                        </td>
+                        @if($rs->avatar)
+                        <td>
+                            <img src="{{ asset('storage/' . $rs->avatar) }}" alt="avatar" style="width: 40px; height:40px;" class="img-profile rounded-box">
+                        </td>
+                        @else
+                        <td>
+                            <img src="{{ asset('assets/img/user.png') }}" alt="avatar" style="width: 40px; height:40px;" class="img-profile rounded-box">
+                        </td>
+                        @endif
                         <td>
                             <a href="{{ route('users.edit', $rs->id)}}" type="button" class="btn btn-warning">Edit</a>
 

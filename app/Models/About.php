@@ -24,6 +24,15 @@ class About extends Authenticatable
         'lives_in',
         'age',
         'gender',
+        'address',
+        'instagram_link',
+        'facebook_link',
+        'twitter_link',
+        'linkedIn_link',
+        'youtube_link',
+        'email',
+        'phone',
+        'password',
 
     ];
 

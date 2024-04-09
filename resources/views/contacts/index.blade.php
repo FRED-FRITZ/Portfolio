@@ -37,7 +37,9 @@
                 <th scope="col">Email</th>
                 <th scope="col">Subject</th>
                 <th scope="col">Message</th>
+                @if(Auth::user()->role === 'admin')
                 <th scope="col">Action</th>
+                @endif
             </tr>
         </thead>
         <tbody>

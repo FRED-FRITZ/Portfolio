@@ -211,27 +211,6 @@
                                         <span class="badge badge-count"></span>
                                     </a>
                                 </li>
-                                <li class="nav-item">
-                                    <a href="">
-                                        <i class="la la-th"></i>
-                                        <p>Blog</p>
-                                        <span class="badge badge-count"></span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="">
-                                        <i class="la la-th"></i>
-                                        <p>Works</p>
-                                        <span class="badge badge-count"></span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route ('webinars.index')}}">
-                                        <i class="la la-th"></i>
-                                        <p>Webinar</p>
-                                        <span class="badge badge-count"></span>
-                                    </a>
-                                </li>
 						</li>
 						</div>
 					</div>

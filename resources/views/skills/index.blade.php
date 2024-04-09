@@ -18,9 +18,11 @@
             <div class="pull-left">
                 <h2>List Skills</h2>
             </div>
+            @if(Auth::user()->role === 'admin')
             <div class="pull-right mb-2">
                 <a href="{{ route('skills.create') }}" class="btn btn-primary">Add skills</a>
             </div>
+            @endif
         </div>
     </div>
 
@@ -36,7 +38,9 @@
                 <th scope="col">#</th>
                 <th scope="col">Skills Name</th>
                 <th scope="col">Skills Percent</th>
+                @if(Auth::user()->role === 'admin')
                 <th scope="col">Action</th>
+                @endif
             </tr>
         </thead>
         <tbody>
@@ -68,7 +72,6 @@
     </table>
 
 </div>
-
 </body>
 </html>
 @endsection
