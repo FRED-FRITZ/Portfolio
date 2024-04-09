@@ -180,28 +180,6 @@
       </div>
     </div>
   </div>
-
-  <div class="vg-page page-service">
-    <div class="container">
-      <div class="text-center wow fadeInUp">
-        <div class="badge badge-subhead">Service</div>
-      </div>
-      <h1 class="fw-normal text-center wow fadeInUp">What can i do?</h1>
-      <div class="row mt-5">
-        <div class="col-md-6 col-lg-4 col-xl-3">
-          <div class="card card-service wow fadeInUp">
-            <div class="icon">
-              <span class="ti-paint-bucket"></span>
-            </div>
-            <div class="caption">
-              <h4 class="fg-theme">Web Design</h4>
-              <p>There are many variations of passages of Lorem Ipsum available</p>
-            </div>
-          </div>
-        </div>
-        </div>
-      </div>
-    </div>
   </div>
 
   <div class="vg-page page-funfact" style="background-image: url(../assets/img/bg_banner.jpg);">

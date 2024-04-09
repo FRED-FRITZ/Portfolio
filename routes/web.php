@@ -40,3 +40,6 @@ Route::resource('educationals', EducationalController::class);
 Route::resource('experiences', ExperienceController::class);
 Route::resource('contacts', ContactController::class);
 Route::resource('/', frontEnd_Controller::class);
+Route::resource('admins', usersController::class)->Middleware('PreventOwnAccountDeletion');
+
+

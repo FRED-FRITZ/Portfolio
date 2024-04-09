@@ -32,8 +32,8 @@
                 <input type="text" name="role" class="form-control" id="role" placeholder="Role">
             </div>
             <div class="form-group col-md-6">
-                <label for="role">Avatar</label>
-                <input type="file" name="avatar" class="form-control" id="role" placeholder="avatar">
+                <label for="avatar">Avatar</label>
+                <input type="file" name="avatar" class="form-control" id="avatar" placeholder="avatar">
             </div>
         <button type="submit" class="btn btn-primary">Submit</button>
 
