@@ -16,7 +16,7 @@
         </div>
     </div>
 
-    <form action="{{ route('educationals.store') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('about.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form-row">
             <div class="form-group col-md-6">
@@ -38,6 +38,10 @@
             <div class="form-group col-md-6">
                 <label for="lives_in">Lives In</label>
                 <input type="text" name="lives_in" class="form-control" id="lives_in" placeholder="Lives In">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="birthday">Birthday</label>
+                <input type="date" name="birthday" class="form-control" id="birthday" placeholder="Birthday">
             </div>
             <div class="form-group col-md-6">
                 <label for="age">Age</label>

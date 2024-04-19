@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Skills;
+use Illuminate\Support\Facades\Auth;
 
 class SkillsController extends Controller
 {
@@ -12,6 +13,11 @@ class SkillsController extends Controller
      */
     public function index()
     {
+        // Check if user is not logged in or has no role
+        if (empty(Auth::user()->role)) {
+            abort(404);
+        }
+
         $skills = Skills::orderBy('created_at', 'DESC')->get();
 
         return view('skills.index', compact('skills'));
@@ -22,6 +28,11 @@ class SkillsController extends Controller
      */
     public function create()
     {
+        // Check if user is not logged in or has no role
+        if (empty(Auth::user()->role)) {
+            abort(404);
+        }
+
         return view('skills.create');
     }
 
@@ -30,6 +41,11 @@ class SkillsController extends Controller
      */
     public function store(Request $request)
     {
+        // Check if user is not logged in or has no role
+        if (empty(Auth::user()->role)) {
+            abort(404);
+        }
+
         Skills::create($request->all());
 
         return redirect()->route('skills.index')->with('success', 'Skills added successfully');
@@ -40,6 +56,11 @@ class SkillsController extends Controller
      */
     public function show(string $id)
     {
+        // Check if user is not logged in or has no role
+        if (empty(Auth::user()->role)) {
+            abort(404);
+        }
+
         $skills = Skills::findOrFail($id);
 
         return view('skills.show', compact('skills'));
@@ -50,6 +71,11 @@ class SkillsController extends Controller
      */
     public function edit(string $id)
     {
+        // Check if user is not logged in or has no role
+        if (empty(Auth::user()->role)) {
+            abort(404);
+        }
+
         $skills = Skills::findOrFail($id);
 
         return view('skills.edit', compact('skills'));
@@ -60,6 +86,11 @@ class SkillsController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        // Check if user is not logged in or has no role
+        if (empty(Auth::user()->role)) {
+            abort(404);
+        }
+
         $skills = Skills::findOrFail($id);
 
         $skills->update($request->all());
@@ -72,6 +103,11 @@ class SkillsController extends Controller
      */
     public function destroy(string $id)
     {
+        // Check if user is not logged in or has no role
+        if (empty(Auth::user()->role)) {
+            abort(404);
+        }
+
         $skills = Skills::findOrFail($id);
 
         $skills->delete();

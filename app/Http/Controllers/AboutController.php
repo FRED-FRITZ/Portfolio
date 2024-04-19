@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\About;
+use Illuminate\Support\Facades\Auth;
 
 class AboutController extends Controller
 {
@@ -12,9 +13,14 @@ class AboutController extends Controller
      */
     public function index()
     {
-         $about = About::orderBy('created_at', 'DESC')->get();
+        // Check if user is not logged in or has no role
+        if (empty(Auth::user()->role)) {
+            abort(404);
+        }
 
-         return view('about.index', compact('about'));
+        $about = About::orderBy('created_at', 'DESC')->get();
+
+        return view('about.index', compact('about'));
     }
 
     /**
@@ -22,7 +28,12 @@ class AboutController extends Controller
      */
     public function create()
     {
-         return view('about.create');
+        // Check if user is not logged in or has no role
+        if (empty(Auth::user()->role)) {
+            abort(404);
+        }
+
+        return view('about.create');
     }
 
     /**
@@ -30,9 +41,14 @@ class AboutController extends Controller
      */
     public function store(Request $request)
     {
-         About::create($request->all());
+        // Check if user is not logged in or has no role
+        if (empty(Auth::user()->role)) {
+            abort(404);
+        }
 
-         return redirect()->route('about.index')->with('success', 'About added successfully');
+        About::create($request->all());
+
+        return redirect()->route('about.index')->with('success', 'About added successfully');
     }
 
     /**
@@ -40,6 +56,11 @@ class AboutController extends Controller
      */
     public function show(string $id)
     {
+        // Check if user is not logged in or has no role
+        if (empty(Auth::user()->role)) {
+            abort(404);
+        }
+
         $about = About::findOrFail($id);
 
         return view('about.show', compact('about'));
@@ -50,6 +71,11 @@ class AboutController extends Controller
      */
     public function edit(string $id)
     {
+        // Check if user is not logged in or has no role
+        if (empty(Auth::user()->role)) {
+            abort(404);
+        }
+
         $about = About::findOrFail($id);
 
         return view('about.edit', compact('about'));
@@ -60,6 +86,11 @@ class AboutController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        // Check if user is not logged in or has no role
+        if (empty(Auth::user()->role)) {
+            abort(404);
+        }
+
         $about = About::findOrFail($id);
 
         $about->update($request->all());
@@ -72,6 +103,11 @@ class AboutController extends Controller
      */
     public function destroy(string $id)
     {
+        // Check if user is not logged in or has no role
+        if (empty(Auth::user()->role)) {
+            abort(404);
+        }
+
         $about = About::findOrFail($id);
 
         $about->delete();

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Experience;
+use Illuminate\Support\Facades\Auth;
 
 class ExperienceController extends Controller
 {
@@ -12,6 +13,11 @@ class ExperienceController extends Controller
      */
     public function index()
     {
+        // Check if user is not logged in or has no role
+        if (empty(Auth::user()->role)) {
+            abort(404);
+        }
+
         $experiences = Experience::orderBy('created_at', 'DESC')->get();
 
         return view('experience.index', compact('experiences'));
@@ -22,6 +28,11 @@ class ExperienceController extends Controller
      */
     public function create()
     {
+        // Check if user is not logged in or has no role
+        if (empty(Auth::user()->role)) {
+            abort(404);
+        }
+
         return view('experience.create');
     }
 
@@ -30,6 +41,11 @@ class ExperienceController extends Controller
      */
     public function store(Request $request)
     {
+        // Check if user is not logged in or has no role
+        if (empty(Auth::user()->role)) {
+            abort(404);
+        }
+
         Experience::create($request->all());
 
         return redirect()->route('experiences.index')->with('success', 'Experience added successfully');
@@ -40,6 +56,11 @@ class ExperienceController extends Controller
      */
     public function show(string $id)
     {
+        // Check if user is not logged in or has no role
+        if (empty(Auth::user()->role)) {
+            abort(404);
+        }
+
         $experiences = Experience::findOrFail($id);
 
         return view('experience.show', compact('experiences'));
@@ -50,6 +71,11 @@ class ExperienceController extends Controller
      */
     public function edit(string $id)
     {
+        // Check if user is not logged in or has no role
+        if (empty(Auth::user()->role)) {
+            abort(404);
+        }
+
         $experiences = Experience::findOrFail($id);
 
         return view('experience.edit', compact('experiences'));
@@ -60,6 +86,11 @@ class ExperienceController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        // Check if user is not logged in or has no role
+        if (empty(Auth::user()->role)) {
+            abort(404);
+        }
+
         $experiences = Experience::findOrFail($id);
 
         $experiences->update($request->all());
@@ -72,6 +103,11 @@ class ExperienceController extends Controller
      */
     public function destroy(string $id)
     {
+        // Check if user is not logged in or has no role
+        if (empty(Auth::user()->role)) {
+            abort(404);
+        }
+
         $experiences = Experience::findOrFail($id);
 
         $experiences->delete();

@@ -16,7 +16,7 @@ class AboutSeeder extends Seeder
         $description = 'is still learning and improving.';
         $from = 'Philippines,Leyte';
         $lives_in = 'Mabini St. Hilongos,Leyte';
-        $age = '20';
+        $birthday = 'July 08,2003';
         $gender = 'Male';
 
         DB::table('abouts')->insert ([
@@ -26,7 +26,7 @@ class AboutSeeder extends Seeder
                 'description' => $description,
                 'from' => $from,
                 'lives_in' => $lives_in,
-                'age' => $age,
+                'birthday' => $birthday,
                 'gender' => $gender,
             ],
         ]);

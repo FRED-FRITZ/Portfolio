@@ -111,6 +111,8 @@
 									<div class="user-box">
 										<div class="u-img"><img src="asset/img/profile.jpg" alt="user"></div>
 										<div class="u-text">
+                                            <h4>Fred Fritz</h4>
+                                            <p class="text-muted">fredfritza@gmail.com</p><a href="profile.html" class="btn btn-rounded btn-danger btn-sm">View Profile</a></div>
 										</div>
 									</li>
 									<div class="dropdown-divider"></div>
@@ -144,6 +146,8 @@
 						<div class="info">
 							<a class="" data-toggle="collapse" href="#collapseExample" aria-expanded="true">
 								<span>
+                                    Fred Fritz
+                                    <span class="user-level">Admin</span>
 									<span class="caret"></span>
 								</span>
 							</a>

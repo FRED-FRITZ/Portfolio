@@ -94,7 +94,7 @@
     @foreach ($admin as $item)
 
     <div class="caption-header text-center wow zoomInDown">
-      <h5 class="fw-normal">Welcome {{ $item->name }}</h5>
+      <h5 class="fw-normal">Welcome</h5>
       <h1 class="fw-light mb-4">I'm <b class="fg-theme">Fred Fritz</b> Agustin</h1>
       <div class="badge">UI/UX & Web Designer</div>
     </div> <!-- End Caption header -->
@@ -116,6 +116,7 @@
           <ul class="theme-list">
             <li><b>From:</b> Philippines, Leyte</li>
             <li><b>Lives In:</b> Mabini St., Hilongos,Leyte</li>
+            <li><b>Birthday:</b> July 08,2003</li>
             <li><b>Age:</b> 20</li>
             <li><b>Gender:</b> Male</li>
           </ul>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Educational;
+use Illuminate\Support\Facades\Auth;
 
 class EducationalController extends Controller
 {
@@ -12,6 +13,11 @@ class EducationalController extends Controller
      */
     public function index()
     {
+        // Check if user is not logged in or has no role
+        if (empty(Auth::user()->role)) {
+            abort(404);
+        }
+
         $educationals = Educational::orderBy('created_at', 'DESC')->get();
 
         return view('educationals.index', compact('educationals'));
@@ -22,6 +28,11 @@ class EducationalController extends Controller
      */
     public function create()
     {
+        // Check if user is not logged in or has no role
+        if (empty(Auth::user()->role)) {
+            abort(404);
+        }
+
         return view('educationals.create');
     }
 
@@ -30,6 +41,11 @@ class EducationalController extends Controller
      */
     public function store(Request $request)
     {
+        // Check if user is not logged in or has no role
+        if (empty(Auth::user()->role)) {
+            abort(404);
+        }
+
         Educational::create($request->all());
 
         return redirect()->route('educationals.index')->with('success', 'Educational added successfully');
@@ -40,6 +56,11 @@ class EducationalController extends Controller
      */
     public function show(string $id)
     {
+        // Check if user is not logged in or has no role
+        if (empty(Auth::user()->role)) {
+            abort(404);
+        }
+
         $educationals = Educational::findOrFail($id);
 
         return view('educationals.show', compact('educationals'));
@@ -50,6 +71,11 @@ class EducationalController extends Controller
      */
     public function edit(string $id)
     {
+        // Check if user is not logged in or has no role
+        if (empty(Auth::user()->role)) {
+            abort(404);
+        }
+
         $educationals = Educational::findOrFail($id);
 
         return view('educationals.edit', compact('educationals'));
@@ -60,6 +86,11 @@ class EducationalController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        // Check if user is not logged in or has no role
+        if (empty(Auth::user()->role)) {
+            abort(404);
+        }
+
         $educationals = Educational::findOrFail($id);
 
         $educationals->update($request->all());
@@ -72,6 +103,11 @@ class EducationalController extends Controller
      */
     public function destroy(string $id)
     {
+        // Check if user is not logged in or has no role
+        if (empty(Auth::user()->role)) {
+            abort(404);
+        }
+
         $educationals = Educational::findOrFail($id);
 
         $educationals->delete();

@@ -41,7 +41,7 @@ class usersController extends Controller
         $admin->password = bcrypt($request->input('password'));
 
         if ($request->hasFile('avatar')) {
-            $avatarPath = $request->file('avatar')->store('avatars', 'public');
+            $avatarPath = $request->file('avatar')->store('avatar', 'public');
             $admin->avatar = $avatarPath;
         }
 
@@ -74,22 +74,29 @@ class usersController extends Controller
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
-    {
-        $users = User::findOrFail($id);
+{
+    $user = User::findOrFail($id);
 
-        $users->role = $request->input('role');
-        $users->name = $request->input('name');
-        $users->email = $request->input('email');
+    $user->role = $request->input('role');
+    $user->name = $request->input('name');
+    $user->email = $request->input('email');
 
-        if ($request->hasFile('avatar')) {
-            $avatarPath = $request->file('avatar')->store('avatars', 'public');
-            $users->avatar = $avatarPath;
+    // Check if a new avatar file is uploaded
+    if ($request->hasFile('avatar')) {
+        // Delete the old avatar if it exists
+        if ($user->avatar) {
+            Storage::disk('public')->delete($user->avatar);
         }
 
-        $users->save();
-
-        return redirect()->route('users.index')->with('success', 'Users updated successfully');
+        // Store the new avatar file
+        $avatarPath = $request->file('avatar')->store('avatars', 'public');
+        $user->avatar = $avatarPath;
     }
+
+    $user->save();
+
+    return redirect()->route('users.index')->with('success', 'User updated successfully');
+}
 
 
 
@@ -99,6 +106,10 @@ class usersController extends Controller
     public function destroy(string $id)
     {
         $users = User::findOrFail($id);
+
+        if ($users->role == "admin") {
+            return redirect()->route('users.index')->with('error', 'ADMIN USER CANNOT BE DELETED!!');
+        }
 
         $users->delete();
 

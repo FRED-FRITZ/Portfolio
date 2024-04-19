@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Contact;
+use Illuminate\Support\Facades\Auth;
 
 class ContactController extends Controller
 {
@@ -12,6 +13,11 @@ class ContactController extends Controller
      */
     public function index()
     {
+        // Check if user is not logged in or has no role
+        if (empty(Auth::user()->role)) {
+            abort(404);
+        }
+
         $contacts = Contact::orderBy('created_at', 'DESC')->get();
 
         return view('contacts.index', compact('contacts'));
@@ -22,7 +28,12 @@ class ContactController extends Controller
      */
     public function create()
     {
-        //
+        // Check if user is not logged in or has no role
+        if (empty(Auth::user()->role)) {
+            abort(404);
+        }
+
+        // You may add logic for showing the create form here
     }
 
     /**
@@ -30,6 +41,11 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
+        // Check if user is not logged in or has no role
+        if (empty(Auth::user()->role)) {
+            abort(404);
+        }
+
         Contact::create($request->all());
 
         return redirect()->route('contacts.index')->with('success', 'Contact added successfully');
@@ -40,9 +56,12 @@ class ContactController extends Controller
      */
     public function show(string $id)
     {
-        // $contacts = Contact::findOrFail($id);
+        // Check if user is not logged in or has no role
+        if (empty(Auth::user()->role)) {
+            abort(404);
+        }
 
-        // return view('contacts.show', compact('contacts'));
+        // You may add logic for showing a single contact here
     }
 
     /**
@@ -50,9 +69,12 @@ class ContactController extends Controller
      */
     public function edit(string $id)
     {
-        // $contacts = Contact::findOrFail($id);
+        // Check if user is not logged in or has no role
+        if (empty(Auth::user()->role)) {
+            abort(404);
+        }
 
-        // return view('contacts.edit', compact('contacts'));
+        // You may add logic for showing the edit form here
     }
 
     /**
@@ -60,11 +82,12 @@ class ContactController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        // $contacts = Contact::findOrFail($id);
+        // Check if user is not logged in or has no role
+        if (empty(Auth::user()->role)) {
+            abort(404);
+        }
 
-        // $contacts->update($request->all());
-
-        // return redirect()->route('contacts.index')->with('success', 'Contact updated successfully');
+        // You may add logic for updating a contact here
     }
 
     /**
@@ -72,10 +95,14 @@ class ContactController extends Controller
      */
     public function destroy(string $id)
     {
-        // $contacts = Contact::findOrFail($id);
+        // Check if user is not logged in or has no role
+        if (empty(Auth::user()->role)) {
+            abort(404);
+        }
 
-        // $contacts->delete();
+        $contact = Contact::findOrFail($id);
+        $contact->delete();
 
-        // return redirect()->route('contacts.index')->with('success', 'Contact deleted successfully');
+        return redirect()->route('contacts.index')->with('success', 'Contact deleted successfully');
     }
 }

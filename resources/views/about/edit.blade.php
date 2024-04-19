@@ -52,6 +52,10 @@
                     <input type="text" name="lives_in" class="form-control" id="lives_in" placeholder="Lives In" value="{{ $about->lives_in }}" >
                 </div>
                 <div class="form-group col-md-6">
+                    <label for="birthday">Birthday</label>
+                    <input type="date" name="birthday" class="form-control" id="birthday" placeholder="Birthday" value="{{ $about->birthday }}" >
+                </div>
+                <div class="form-group col-md-6">
                     <label for="age">Age</label>
                     <input type="number" name="age" class="form-control" id="age" placeholder="Age" value="{{ $about->age }}" >
                 </div>

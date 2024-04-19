@@ -37,7 +37,7 @@
                 <th scope="col">Email</th>
                 <th scope="col">Subject</th>
                 <th scope="col">Message</th>
-                @if(Auth::user()->role === 'admin')
+                @if(Auth::check() && Auth::user()->rolw === 'admin')
                 <th scope="col">Action</th>
                 @endif
             </tr>
@@ -52,6 +52,14 @@
                         <td>{{ $rs->subject }}</td>
                         <td>{{ $rs->message }}</td>
                         <td>
+                            <div class="btn-group" role="group" aria-label="Basic example">
+
+                                <form action="{{ route('contacts.destroy', $rs->id) }}" method="POST" onsubmit="return confirm('Delete?')">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-danger">Delete</button>
+                                </form>
+                            </div>
                         </td>
                     </tr>
                 @endforeach

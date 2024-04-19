@@ -16,7 +16,7 @@ class checkRole
 
         // Check if the user has the required role
         if (!$request->user()->hasRole($role)) {
-            abort(403, 'Unauthorized');
+            abort(403, 'Unauthorized: You are not authorized to access this resource.');
         }
 
         return $next($request);
